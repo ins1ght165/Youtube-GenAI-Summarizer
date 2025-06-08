@@ -1,7 +1,7 @@
-from transcript import getTranscriptText
+from app.transcript import get_transcript_text
 
 # Example YouTube video with captions
 videoURL = "https://www.youtube.com/watch?v=LKBiHbU63UE"
 
-result = getTranscriptText(videoURL)
+result = get_transcript_text(videoURL)
 print(result)

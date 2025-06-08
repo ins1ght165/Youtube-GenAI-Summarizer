@@ -2,7 +2,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 from urllib.parse import urlparse, parse_qs
 from youtube_transcript_api._errors import TranscriptsDisabled, NoTranscriptFound, VideoUnavailable
 
-def extractVideoID(URL: str) -> str:
+def extract_videoID(URL: str) -> str:
     parsedURL = urlparse(URL)
     queryParams = parse_qs(parsedURL.query)
 
@@ -11,8 +11,8 @@ def extractVideoID(URL: str) -> str:
     else:
         raise ValueError("Invalid or unsupported Youtube URL fromat.")
 
-def getTranscriptText(videoURL: str) -> str:
-    videoID = extractVideoID(videoURL)
+def get_transcript_text(videoURL: str) -> str:
+    videoID = extract_videoID(videoURL)
     try:
         transcript = YouTubeTranscriptApi.get_transcript(videoID)
         Text = " ".join([entry["text"] for entry in transcript])
